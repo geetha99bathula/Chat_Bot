@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Policy Information</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" />
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/avatar.svg') }}">
+
+</head>
+<body>
+	<div class="container">
+
+		<div class="policyinfo-content .input-div">
+			<form action="#">
+				<h2 class="title" id="Policyinfo">Policy&nbsp&nbspinformation</h2>
+           		<div class="input-div one">
+           		   <div class="div">
+           		   		<h5> &nbsp&nbsp&nbsp&nbsp&nbspName</h5>
+           		   		<input type="text" class="input" id="name">
+           		   </div>
+           		</div>
+
+           		<div class="input-div one">
+           		   <div class="i">
+           		   </div>
+           		   <div class="div">
+                    <h5>Full Policyholder Name</h5>
+                    <input type="text" class="input" id="fullname">
+                 </div>
+            	</div>
+
+              <div class="input-div one">
+                 <div class="i">
+                 </div>
+                 <div class="div">
+                    <h5>Phone</h5>
+                    <input type="text" class="input" id="phone">
+                 </div>
+              </div>
+
+              <div class="input-div one">
+                 <div class="i">
+                 </div>
+                 <div class="div">
+                    <h5>Policy Address</h5>
+                    <input type="text" class="input" id="policyaddress">
+                 </div>
+              </div>
+
+              <div class="input-div one">
+                 <div class="i">
+                 </div>
+                 <div class="div">
+                    <h5>Country</h5>
+                    <input type="text" class="input" id="country">
+                 </div>
+              </div>
+
+              <div class="input-div one">
+                 <div class="i">
+                 </div>
+                 <div class="div">
+                    <h5>Policy Percentage</h5>
+                    <input type="text" class="input" id="policypercentage">
+                 </div>
+              </div>
+
+            	<input href="#" type="submit" class="btn" value="Proceed">
+            </form>
+        </div>
+
+    <div class="policyinfo-content">
+      <form action="#">
+        <h2 class="title" id="Policyinfo">  &nbsp</h2>
+              <div class="input-div one">
+                 <div class="div">
+                    <h5>&nbsp&nbsp&nbsp&nbsp&nbspTerm&nbsptype</h5>
+                    <input type="text" class="input" id="termtype">
+                 </div>
+              </div>
+
+              <div class="input-div one">
+                 <div class="i">
+                 </div>
+                 <div class="div">
+                    <h5>Term number</h5>
+                    <input type="text" class="input" id="termnumber">
+                 </div>
+              </div>
+
+              <div class="input-div one">
+                 <div class="i">
+                 </div>
+                 <div class="div">
+                    <h5>Start Date</h5>
+                    <input type="text" class="input" id="startdate">
+                 </div>
+              </div>
+
+              <div class="input-div one">
+                 <div class="i">
+                 </div>
+                 <div class="div">
+                    <h5>Expiry Date</h5>
+                    <input type="text" class="input" id="expirydate">
+                 </div>
+              </div>
+
+
+              <div class="input-div ">
+                 <div class="i">
+                 </div>
+                 <div class="div">
+                    <h5>LTA (Long Term Aggrement): </h5>
+                 </div>
+                 <input type="radio" id="ltayes" name="lta" value="ltayes" disabled="true">
+                  <label for="ltayes">Yes</label>
+                  <input type="radio" id="ltano" name="lta" value="ltano" checked="true">
+                  <label for="ltano">No</label>
+              </div>
+
+
+
+
+            </form>
+        </div>
+  </div>
+
+<!-- chatbot pop up demo -->
+
+<button class="chatbot-button" onclick="openForm()">
+
+                 <i class="fas fa-robot"></i>
+
+</button>
+
+<div class="chat-popup" id="myForm">
+  <form class="form-container" borders="solid">
+    <h1 align="center">Hi.. I am Chatbot</h1>
+
+    <!-- <label for="msg"><b>Message</b></label> -->
+    <textarea placeholder="Type Your Queries.." name="msg" required></textarea>
+
+    <button type="submit" class="chatbot-send-button">Send</button>
+    <button type="button" class="chatbot-send-button" onclick="closeForm()">Close</button>
+  </form>
+</div>
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+function check() {
+  document.getElementById("ltano").checked = true;
+}
+</script>
+<!-- end of popup -->
+
+	<script type="text/javascript" src="{{ url_for('static', filename='scripts/main.js') }}"></script>
+
+</body>
+</html>

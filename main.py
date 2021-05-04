@@ -1,29 +1,39 @@
-from flask import Flask, render_template, url_for, flash, redirect
-from forms import LoginForm, PolicyInfoForm
-
+from flask import Flask, render_template, request, redirect, url_for
+import mysql.connector
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '56ca92a96c7a8dc6'
+app.secret_key = "ChatBotFlaskKey"
 
 
 @app.route('/', methods=['GET', 'POST'])
 def login():
-    form = LoginForm()
-    if form.validate_on_submit():
-        if form.username.data == 'admin' and form.password.data == 'password':
-            flash('You have been logged in!', 'success')
+    mydb = mysql.connector.connect(
+        host='localhost',
+        user='root',
+        password='',
+        database='chatbot'
+    )
+    cursor = mydb.cursor()
+    if request.method == 'POST':
+        details = request.form
+        username = details['uname']
+        passwd = details['pwd']
+        cursor.execute("SELECT * FROM user_login WHERE user_name='"+username+"' AND password='"+passwd+"'")
+        all = cursor.fetchall()
+        count = cursor.rowcount
+        if count == 1:
             return redirect(url_for('info'))
         else:
-            flash("Username / Password is InValid")
-    return render_template('l.html', title='Login', form=form)
+            return render_template('l.html')
+        mydb.commit()
+        cursor.close()
+    return render_template('l.html')
 
 
-@app.route('/info', methods=['GET', 'POST'])
+@app.route('/info')
 def info():
-    form = PolicyInfoForm()
-    return render_template('infy.html', title='Info', form=form)
+    return render_template('policyinfo.html')
 
 
 if __name__ == '__main__':
     app.run(debug=True)
-
